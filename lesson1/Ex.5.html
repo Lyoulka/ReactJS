@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 5</title>
+  <script>
+    function get(iterator){
+      return new Promise((resolve, reject) => {
+                fetch ('https://jsonplaceholder.typicode.com/users/number' + iterator)
+                .then((result) => {
+                  resolve(result.json())
+                }).catch((error) => {
+                  reject(error)
+                });
+            });
+    }
+    let promiseArray = [];
+    for (let i = 0; i <=10; i++){
+      promiseArray.push(get(i));
+    }
+    Promise.all(promiseArray)
+    .then((results) => {
+     console.log(results)
+    },
+    error => {
+        console.log(error);
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>

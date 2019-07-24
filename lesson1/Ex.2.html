@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 2</title>
+  <script>
+    let calculateArea = (a, b, name) => {
+      let s;
+      switch(name) {
+        case 'Прямоугольник':
+        s = a * b;
+        break;
+        case 'Квадрат':
+        s = a * a;
+        break;
+        case 'Треугольник':
+        s = a * b / 2;
+        break;
+        default:
+        alert( 'Я таких фигур не знаю' )
+        break;
+        }
+    const Figure = {area: s, figure: name, input: {a, b, name}};
+    console.log (Figure);
+    };
+    calculateArea(4, 3, 'Прямоугольник');
+    calculateArea(4, 4, 'Квадрат');
+    calculateArea(4, 9, 'Треугольник');
+    calculateArea(2, 0, 'Круг');
+  </script>
+</head>
+<body>
+</body>
+</html>

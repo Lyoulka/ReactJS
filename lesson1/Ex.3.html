@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 3</title>
+  <script>
+    class Human {
+      constructor(name, age, dateOfBirth) {
+        this.name = name;
+        this.age = age;
+        this.dateOfBirth = dateOfBirth;
+      }
+      displayInfo() {
+        return "Name = " + this.name + "; Age = " + this.age + "; Date of birth = " + this.dateOfBirth;
+        }
+      }
+    console.log(new Human("Юля", 25, "25.07.1993").displayInfo());
+    class Employee extends Human {
+      constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth);
+        this.salary = salary;
+        this.department = department;
+      }
+      displayInfo() {
+        return super.displayInfo() + "; Salary = " + this.salary + "; Department = " + this.department;
+    }
+  }
+  console.log(new Employee("Юля", 25, "25.07.1993", 35000, "Разработки и тестирования").displayInfo());
+  class Manager extends Employee {
+    constructor(name, age, dateOfBirth, salary, department) {
+        super(name, age, dateOfBirth, salary, department);
+        this.developers = [];
+    }
+    add(developer) {
+      if (!developer instanceof Developer) return;
+      if (developer.manager === this) {
+        return;
+      }
+      if (developer.manager) {
+        developer.manager.delete(developer);
+      }
+      t
+      if (developer.setManager(this)){
+        this.developers.push(developer);
+      }
+      
+    }
+    delete(developer) {
+        for (let i = 0; i < this.developer.length; i++) {
+            if (developer === this.developer[i]) {
+                this.developer.splice(i, 1);
+                developer.manager = null;
+                return true;
+            }
+        }
+        return false;
+    }
+    displayInfo() {
+        return super.displayInfo() + "; Manager of " + this.developers.length + " developer(s)";
+    }
+  }
+  var manager = new Manager("Юля", 25, "25.07.1993", 35000, "Разработки и тестирования");
+  console.log(manager.displayInfo());
+  class Developer extends Employee {
+    constructor(name, age, dateOfBirth, salary, department, manager) {
+        super(name, age, dateOfBirth, salary, department);
+        this.manager = manager;
+    }
+    setManager(manager) {
+      if (!manager instanceof Manager) {return false;}
+      manager.add(this);
+      return true;
+    }
+    displayInfo() {
+        return super.displayInfo() + "; Ваш менеджер " + (this.manager ? this.manager.name : "не назначен");
+    }
+  }
+    var developer1 = new Developer("Павел", 34, "6.05.1985", 4000, "Разработки и тестирования");
+    console.log(developer1.displayInfo());
+    var developer2 = new Developer("Олеся", 28, "12.08.90", 5000, "Разработки и тестирования", manager);
+    console.log(developer2.displayInfo());
+  </script>
+</head>
+<body>
+</body>
+</html>

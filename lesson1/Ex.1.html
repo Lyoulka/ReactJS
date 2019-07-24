@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 1</title>
+  <script>
+    function loop (times = 0, callback = null){
+      if ( typeof (callback) !== 'function') return;
+      for (let i = 0; i < times; i++){
+        callback(i);
+        }
+    }
+    function log(num) {
+      num++;
+      console.log(num);
+    }
+    loop(10, log);
+    loop(10,10);
+  </script>
+</head>
+<body>
+</body>
+</html>
