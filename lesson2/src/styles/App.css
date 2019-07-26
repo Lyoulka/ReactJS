@@ -1,0 +1,13 @@
+h1 {
+    color: #27aedb;
+    text-align: center;
+}
+p {
+    color: blue;
+}
+button {
+    color: aliceblue;
+    background-color: blue;
+    padding: 1em 2em;
+    border-radius: 5px;
+}
